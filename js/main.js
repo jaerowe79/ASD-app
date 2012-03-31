@@ -1,7 +1,7 @@
 //Janis Jae Hines
 // ASD Project 1
 // Term 1204
-
+// March 30, 2012
 
 var parseEventForm = function(data){
     console.log(data);
