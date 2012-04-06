@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events> 
+		<event>
+		<ename>Jack's School Picnic</ename>
+		<edate>03/23/2012</edate>
+		<etime>4:00 pm</etime>
+		<recurrencetype>Monthly</recurrencetype>
+		<recurrences>6</recurrences>
+		<importance>6</importance>
+		<information>Bring a snack</information>
+		<location>University</location>
+		</event>
+		
+		<event>
+		<ename>Kris' School Orientation</ename>
+		<edate>04/25/2012</edate>
+		<etime>12:00 pm</etime>
+		<recurrencetype>Once</recurrencetype>
+		<recurrences>0</recurrences>
+		<importance>10</importance>
+		<information>Bring welcome packet</information>
+		<location>Pre-school</location>
+		</event>
+		
+		<event>
+		<ename>Matthew's Soccer Game</ename>
+		<edate>07/21/2012</edate>
+		<etime>4:45 pm</etime>
+		<recurrencetype>Weekly</recurrencetype>
+		<recurrences>13</recurrences>
+		<importance>8</importance>
+		<information>Don't forget equipment and water</information>
+		<location>Soccer Complex</location>
+		</event>
+		
+		<event>
+		<ename>Brandon's Parent Teacher Conference</ename>
+		<edate>05/01/2012</edate>
+		<etime>3:00 pm</etime>
+		<recurrencetype>Once</recurrencetype>
+		<recurrences>0</recurrences>
+		<importance>9</importance>
+		<information>None</information>
+		<location>Elementary School</location>
+		</event>
+		
+		<event>
+		<ename>Taylor's Graduation</ename>
+		<edate>06/08/2012</edate>
+		<etime>9:00 pm</etime>
+		<recurrencetype>Once</recurrencetype>
+		<recurrences>0</recurrences>
+		<importance>10</importance>
+		<information>Bring a camera</information>
+		<location>High School</location>
+		</event>
+		
+		
+</events>
