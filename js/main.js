@@ -115,7 +115,7 @@ if(localStorage.getEvent('kidtracks')){
 
 
 //When click edit button
-	function clickEdit(){
+function clickEdit(){
 	var ename = $('#ename').val();
 	var edate = $('#edate').val();
 	var etime = $('#etime').val();
@@ -134,15 +134,16 @@ if(localStorage.getEvent('kidtracks')){
 		information,
 		location
 	];
-	if(ename != "" && ename != "Event Name" && edate != ""){
+	if(ename !== "" && ename !== "Event Name" && edate !== ""){
 	localStorage.setItem(itemId, allItems);
 	location.reload();
 	}else{
 	alert("Event Name and Event Date fields are required.");
 	}
 	};
-$('#edit-item').bind('click', clickEdit);
-}
+
+$('#edit-item').bind('click', (clickEdit));
+
 
 
 // Delete item function	
