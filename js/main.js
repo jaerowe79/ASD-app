@@ -38,8 +38,6 @@ $('#list')
 	.append($('<p>').text(value[6]))
 	.append($('<p>').text(value[7]))
 	.append($('<p>').text(" "))
-	.append($("<a>").attr( "href", "#").attr("onclick", "deleteEvent(" + key + ");").attr("data-role", "button").attr("data-icon", "delete").text("Delete").attr("data-theme", "c").attr("data-inline", "true"))
-	.append($("<a>").attr( "href", "#").attr("onclick", "editEvent(" + key + ");").attr("data-role", "button").attr("data-icon", "gear").text("Edit Event").attr("data-theme", "b").attr("data-inline", "true")
 	);
 	
 if(localStorage.getEvent('kidtracks')){
@@ -251,8 +249,6 @@ $.ajax({
 		    var importance = $(this).find('importance').text();
 		    var information = $(this).find('information').text();
 		    var location = $(this).find('location').text();
-		    $("#static").append('<li data-role="list-divider">XML DATA</li>')
-		     $("#static").append('<li data-theme=c></li>');
 		     $("#static li:last-child").append('<p>' + ename + '</p>');
 		     $("#static li:last-child").append('<p>' + edate + '</p>');
 		     $("#static li:last-child").append('<p>' + etime + '</p>');
@@ -295,8 +291,6 @@ $.ajax({
 	}
 	for (var m=0; m<lines.length; m++){
 	var e = lines[m];
-		$("#static").append('<li data-role="list-divider">CSV DATA</li>')
-		$("#static").append('<li data-theme=c></li>');
 		$("#static li:last-child").append('<p>' + e[0] + '</p>');
 		$("#static li:last-child").append('<p>' + e[1] + '</p>');
 		$("#static li:last-child").append('<p>' + e[2] + '</p>');
