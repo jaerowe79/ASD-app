@@ -132,7 +132,7 @@ if(localStorage.getEvent('kidtracks')){
 		recurrence,
 		importance,
 		information,
-		location,
+		location
 	];
 	if(ename != "" && ename != "Event Name" && edate != ""){
 	localStorage.setItem(itemId, allItems);
