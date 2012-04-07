@@ -27,7 +27,7 @@
 
 
 <!-- Add track Page -->
-	<div data-role="page" id="addevent" data-add-back-btn="true">
+	<div data-role="page" id="additem.html" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="a">
 			<h1>Add New Event</h1>
 		</div>
@@ -78,20 +78,17 @@
 						<div>
 							<input type="reset" id="reset" value="Reset" data-theme="a" />
 						</div>
+						<div id="list" data-role="content">
+						</div>
 					</div>
 				</div>
 				<div>
-					<input type="submit" id="submit" class="addeventbutton" value="Add" data-theme="c" />
+					<input type="submit" id="submit" class="submit" value="Add" data-theme="c" />
 				</div>
 				<div id="edit-item-button">
 					<input type="button" id="edit-event" value="Edit Event" />
 				</div>
-				<div id="list" data-role="content">
-				</div>
-				
-				<div id="clearlocal">
-				<p id="clear"><a href="#" data-role="button">Clear Local Storage</a></p>						
-				</div>
+		
 			<div>
 			<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
 		</div>
