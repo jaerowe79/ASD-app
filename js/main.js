@@ -5,21 +5,16 @@
 // lost all my code when I pushed to github and had to re copy 
 
 
-$(document).ready(function() {
-
-//GLOBAL VARIABLES
-
-	var itemId = id;
-	// Show edit, hide submit
-    var editButton = $('#edit-item-button').css('display', 'block');
-    var subresButtons = $('#submit-reset-buttons').css('display', 'none');
-    var itemList = $('#list').css('display', 'none');
-
-
+$(document).ready(function () {
     // Get items
+    
+    
+    var key;
+    var editId;
+    
     function getEvents() {
         for (var i = 0, n = localStorage.length; i < n; i++) {
-            var key = localStorage.key(i);
+            key = localStorage.key(i);
             var value = localStorage.getEvent(key);
             value = value.split(',');
             var ename = value[0];
@@ -32,47 +27,50 @@ $(document).ready(function() {
             var location = value[7];
         }
     };
-
     getEvents();
-
-    $('#list').append($('<p>').text(value[0])).append($('<p>').text(value[1])).append($('<p>').text(value[3])).append($('<p>').text(value[2])).append($('<p>').text(value[4])).append($('<p>').text(value[5])).append($('<p>').text(value[6])).append($('<p>').text(value[7])).append($('<p>').text(" "))
-
-        if (localStorage.getEvent('kidtracks')) {
+    $('#list')
+    .append($('<p>').text(value[0]))
+    .append($('<p>').text(value[1]))
+    .append($('<p>').text(value[3]))
+    .append($('<p>').text(value[2]))
+    .append($('<p>').text(value[4]))
+    .append($('<p>').text(value[5]))
+    .append($('<p>').text(value[6]))
+    .append($('<p>').text(value[7]))
+    .append($('<p>').text(" "));
+    if (localStorage.getEvent('kidtracks')) {
         var clearLink = $('#clear').css('display', 'block');
     } else {
-        var ename = "";
-        var edate = "";
-        var etime = "";
-        var ename = $('#ename').val(ename);
-        var edate = $('#edate').val(edate);
-        var etime = $('#etime').val(etime);
+        var ename ;
+        var edate ;
+        var etime ;
+        ename = $('#ename').val(ename);
+        edate = $('#edate').val(edate);
+        etime = $('#etime').val(etime);
         var recurrencetype = $('#recurrencetype').val(recurrencetype);
         var recurrence = $('#recurrence').val(recurrence);
         var importance = $('#importance').val(importance);
         var information = $('#information').val(information);
         var location = $('#location').val(location);
-
     }
-
     // Save items
     function saveItems(id) {
-    	var key = localStorage.key;
         var ename = $('#ename').val();
         var edate = $('#edate').val();
         var etime = $('#etime').val();
         var recurrencetype = $('#recurrencetype').val();
         var recurrence = $('#recurrence').val();
-        var importance = $('#importance').val();
+        var importance = $('importance').val();
         var information = $('#information').val();
         var location = $('#location').val();
-        var allItems = [ename, edate, etime, recurrencetype, recurrence, importance, information, location ];
-        localStorage.setItem(key, allItems);
-        location.reload();
+        var allItems = [
+        ename, edate, etime, recurrencetype, recurrence, importance, information, location ];
+	        localStorage.setItem(key, allItems);
+	        location.reload();
     }
-
     // Edit items function
     function editItem(id) {
-        var itemId = id;
+        itemId = id;
         var value = localStorage.getItem(itemId);
         value = value.split(',');
         var ename = value[0];
@@ -93,8 +91,10 @@ $(document).ready(function() {
         $('#information').val(information);
         $('#location').val(location);
     }
-
-   
+    // Show edit, hide submit
+    var editButton = $('#edit-item-button').css('display', 'block');
+    var subresButtons = $('#submit-reset-buttons').css('display', 'none');
+    var itemList = $('#list').css('display', 'none');
     //When click edit button
     function clickEdit() {
         var ename = $('#ename').val();
@@ -105,7 +105,8 @@ $(document).ready(function() {
         var importance = $('#importance').val();
         var information = $('#information').val();
         var location = $('#location').val();
-        var allItems = [ename, edate, etime, recurrencetype, recurrence, importance, information, location];
+        var allItems = [
+        ename, edate, etime, recurrencetype, recurrence, importance, information, location];
         if (ename !== "" && ename !== "Event Name" && edate !== "") {
             localStorage.setItem(itemId, allItems);
             location.reload();
@@ -113,9 +114,7 @@ $(document).ready(function() {
             alert("Event Name and Event Date fields are required.");
         }
     };
-
     $('#edit-item').bind('click', (clickEdit));
-
     // Delete item function
     function deleteItem(id) {
         var ask = confirm("Are you sure?");
@@ -126,25 +125,21 @@ $(document).ready(function() {
             alert("Track not removed.");
         }
     }
-
     // Clear local storage
-    $('#clear').bind('click', function() {
+    $('#clear').bind('click', function () {
         localStorage.clear();
         location.reload();
         return false;
     });
-
     // Clear index button event
-    $('#index-clear').bind('click', function() {
+    $('#index-clear').bind('click', function () {
         location.reload();
         return false;
     });
-
     // Hide edit button
     $('#editbutton').css('display', 'none');
-
     // Validate form
-    $('#submit').bind('click', function() {
+    $('#submit').bind('click', function () {
         var getEname = $('#ename').val();
         var getEdate = $('#edate').val();
         var getEtime = $('#etime').val();
@@ -168,16 +163,14 @@ $(document).ready(function() {
         }
     });
 
-
-
 // JSON
-$('#json').live('click', function() {
+$('#json').live('click', function () {
     $('#static').empty();
     $.ajax({
         url: 'xhr/data.json',
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             for (var i = 0, j = response.neweventform.length; i < j; i++) {
                 var e = response.neweventform[i];
                 $("#static").append('<li data-role="list-divider">JSON DATA</li>');
@@ -194,21 +187,20 @@ $('#json').live('click', function() {
         }
         console.log(response);
     });
-    error: function(result) {
+    error: function (result) {
         console.log(result);
     });
     return false;
 });
-
 // XML
- $('#xml').live('click', function() {
+$('#xml').live('click', function () {
     $('#static').empty();
     $.ajax({
         url: 'xhr/data.xml',
         type: 'GET',
         dataType: 'xml',
-        success: function(xml) {
-            $(xml).find("item").each(function() {
+        success: function (xml) {
+            $(xml).find("item").each(function () {
                 var ename = $(this).find('ename').text();
                 var edate = $(this).find('edate').text();
                 var etime = $(this).find('etime').text();
@@ -230,20 +222,19 @@ $('#json').live('click', function() {
         }
         console.log(result);
     });
-    error: function(result) {
+    error: function (result {
         console.log(result);
     });
     return false;
 });
-
 //Csv
- $('#csv').live('click', function() {
+$('#csv').live('click', function () {
     $('#static').empty();
     $.ajax({
         type: "GET",
         url: "xhr/data.csv",
         dataType: "text",
-        success: function(result) {
+        success: function (result) {
             var allTextLines = data.split(/\r\n|\n/);
             var headers = allTextLines[0].split(',');
             var lines = [];
@@ -254,7 +245,7 @@ $('#json').live('click', function() {
                     for (var j = 0; j < headers.length; j++) {
                         event.push(result[j]);
                     }
-                    error: function(result) {
+                    error: function (result {
                         console.log(result);
                     });
                     lines.push(event);
