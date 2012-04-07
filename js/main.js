@@ -2,7 +2,7 @@
 // ASD 1204
 // Janis Jae Hines
 // April 3, 2012
-//
+// lost all my code when I pushed to github and had to re copy 
 
 
 $(document).ready(function() {
