@@ -24,9 +24,13 @@ function getEvents(){
 		var importance = value[5];
 		var information = value[6];
 		var location = value[7];
-		
+	}
+};
+	
+getEvents();
 
-$('#list')
+
+$('#list'){
 	.append($('<p>').text(value[0]))
 	.append($('<p>').text(value[1]))
 	.append($('<p>').text(value[3]))
@@ -307,4 +311,3 @@ $.ajax({
 return false;
 });
 
-getEvents();
