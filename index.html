@@ -70,18 +70,8 @@
 					</a>
 			</ul>
 		</div>
-		<div data-role="content">
-		<ul data-role="listview" id="static" data-inset="false" data-divider-theme="b"></ul>
-		<br />
-		<center>
-			<a href="#" data-role="button" data-theme="e" data-inline="true" id="json">JSON</a>
-			<a href="#" data-role="button" data-theme="b" data-inline="true" id="xml">XML</a>
-			<a href="#" data-role="button" data-theme="c" data-inline="true" id="csv">CSV</a>
-		</center>
-		<input type="reset" id="clear" value="Clear Tracks" data-theme="a" data-icon="back" data-iconpos="right" />
-		</div>
-		<div>
-			<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
+		<div>			
+		<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
 		</div>
 	</div> <!-- End of Second Page -->	    		
 		
@@ -99,6 +89,16 @@
 			<ul data-role="listview" data-inset="true" data-filter="true">
 				<li><h3>All Stored Kid Tracks</h3></li>
 			</ul>
+			<div data-role="content">
+			<ul data-role="listview" id="static" data-inset="false" data-divider-theme="b"></ul>
+			<br />
+			<center>
+				<a href="json" data-role="button" data-theme="e" data-inline="true" id="json">JSON</a>
+				<a href="xml" data-role="button" data-theme="b" data-inline="true" id="xml">XML</a>
+				<a href="csv" data-role="button" data-theme="c" data-inline="true" id="csv">CSV</a>
+		</center>
+		<input type="reset" id="clear" value="Clear Tracks" data-theme="a" data-icon="back" data-iconpos="right" />
+		</div>
 		</div>
 		<div>
 			<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
@@ -111,7 +111,7 @@
 	<!-- Add track Page -->
 	<div data-role="page" id="addevent" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed" data-theme="a">
-			<h1>Add New Event</h1>
+			<h1>Add New Track</h1>
 		</div>
 		<img src="images/logo1.png" />
 
@@ -141,7 +141,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="recurrence">Number of Event Recurrences:</label> 
-					<input type="text" name="recurrence" id="recurrence" class="required number" placeholder="1"/>
+					<input type="text" name="recurrence" id="recurrence" placeholder="1"/>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="importance">Importance of Event:</label>
@@ -153,9 +153,9 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="location">Location of Event:</label> 
-					<input type="text" name="location" id="location" class="required" placeholder="Event Location"/>
+					<input type="text" name="location" id="location" placeholder="Event Location"/>
 				</div>
-				<div id="addeventbuttons" data-role="fieldcontain">
+				<div data-role="fieldcontain">
 					<div id="submit-reset-buttons">
 						<div>
 							<input type="reset" id="reset" value="Reset" data-theme="a" />
@@ -166,11 +166,7 @@
 				</div>
 				<div>
 					<input type="submit" id="submit" class="submit" value="Add" data-theme="c" />
-				</div>
-				<div id="edit-item-button">
-					<input type="button" id="edit-event" value="Edit Event" />
-				</div>
-		
+				</div>		
 			<div>
 			<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
 		</div>
@@ -179,7 +175,7 @@
 			</div>
     </div>
     <!-- End of add track page -->
-
+   
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>

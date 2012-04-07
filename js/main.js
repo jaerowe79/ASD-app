@@ -5,8 +5,7 @@
 
 
 
-$('#page').live('pageinit', function(){
-
+$(document).ready(function() {
 
 
 // Get items
@@ -29,8 +28,7 @@ function getEvents(){
 	
 getEvents();
 
-
-$('#list'){
+$('#list')
 	.append($('<p>').text(value[0]))
 	.append($('<p>').text(value[1]))
 	.append($('<p>').text(value[3]))
@@ -43,8 +41,8 @@ $('#list'){
 	.append($("<a>").attr( "href", "#").attr("onclick", "deleteEvent(" + key + ");").attr("data-role", "button").attr("data-icon", "delete").text("Delete").attr("data-theme", "c").attr("data-inline", "true"))
 	.append($("<a>").attr( "href", "#").attr("onclick", "editEvent(" + key + ");").attr("data-role", "button").attr("data-icon", "gear").text("Edit Event").attr("data-theme", "b").attr("data-inline", "true")
 	);
-	}
-if(localStorage.getEvent('apptitle')){
+	
+if(localStorage.getEvent('kidtracks')){
 	var clearLink = $('#clear').css('display', 'block');
 	}else{
 	var ename = "";
@@ -60,7 +58,6 @@ if(localStorage.getEvent('apptitle')){
 	var location = $('#location').val(location);
 
 	}
-}
 	
 	
 // Save items
@@ -110,7 +107,7 @@ if(localStorage.getEvent('apptitle')){
 	$('#importance').val(importance);
 	$('#information').val(information);
 	$('#location').val(location);
-
+}
 
 
 // Show edit, hide submit
@@ -176,7 +173,7 @@ $('#edit-item').bind('click', clickEdit);
 	});
 
 // Hide edit button
-	$('#edit-item-button').css('display', 'none');
+	$('#editbutton').css('display', 'none');
 
 // Validate form
 	$('#submit').bind('click', function(){
@@ -203,7 +200,7 @@ $('#edit-item').bind('click', clickEdit);
 	}
 	});
 	
-});
+}
 
 
 
@@ -223,14 +220,15 @@ $('#edit-item').bind('click', clickEdit);
 					$("#static li:last-child").append('<p>' + e.edate + '</p>');
 					$("#static li:last-child").append('<p>' + e.etime + '</p>');
 					$("#static li:last-child").append('<p>' + e.recurrencetype + '</p>');
-					$("#static li:last-child").append('<p>' + e.recurrences + '</p>');
+					$("#static li:last-child").append('<p>' + e.recurrence + '</p>');
 					$("#static li:last-child").append('<p>' + e.importance + '</p>');
 					$("#static li:last-child").append('<p>' + e.information + '</p>');
 					$("#static li:last-child").append('<p>' + e.location + '</p>');
 					$("#static").listview("refresh");
 				}
-			}
-		});
+			}console.log(response);
+		});		
+		error: function(result{console.log(result);});
 	  return false;
 	});
 	
@@ -259,13 +257,15 @@ $.ajax({
 		     $("#static li:last-child").append('<p>' + edate + '</p>');
 		     $("#static li:last-child").append('<p>' + etime + '</p>');
 		     $("#static li:last-child").append('<p>' + recurrencetype + '</p>');
-		     $("#static li:last-child").append('<p>' + recurrences + '</p>');
+		     $("#static li:last-child").append('<p>' + recurrence + '</p>');
+		     $("#static li:last-child").append('<p>' + importance + '</p>');
 		     $("#static li:last-child").append('<p>' + information + '</p>');
 		     $("#static li:last-child").append('<p>' + location + '</p>');
 		     $("#static").listview("refresh");
 		});
-		}
-		});
+		}console.log(result);
+		});		
+		error: function(result{console.log(result);});
 		return false;
 		});
 		
@@ -278,17 +278,18 @@ $.ajax({
         type: "GET",
         url: "xhr/data.csv",
         dataType: "text",
-        success: function(data) {
+        success: function(result) {
      var allTextLines = data.split(/\r\n|\n/);
      var headers = allTextLines[0].split(',');
      var lines = [];
 		for (var i=1; i<allTextLines.length; i++) {
-		var data = allTextLines[i].split(',');
-		if (data.length == headers.length) {
+		var result = allTextLines[i].split(',');
+		if (result.length == headers.length) {
 		var event = [];
 		for (var j=0; j<headers.length; j++) {
-		event.push(data[j]);
+		event.push(result[j]);
 		}
+		error: function(result{console.log(result);});
 	lines.push(event);
 	}
 	}
@@ -306,7 +307,7 @@ $.ajax({
 		$("#static li:last-child").append('<p>' + e[7] + '</p>');
 		$("#static").listview("refresh");
 		}
-		}
+		}console.log(result);
 		});
 return false;
 });
