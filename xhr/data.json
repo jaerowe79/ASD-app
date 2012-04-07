@@ -1,0 +1,52 @@
+
+
+{ "neweventform": [
+
+{"ename" : "Matthew's Soccer Practice",
+"edate" : "05/21/2012"
+"etime" : "6:30 pm"
+"recurrencetype" : "Weekly"
+"recurrences" : "12"
+"importance" : "9"
+"information" : "Bring all eqiupment"
+"location" : "Windmill Park"
+},
+{"ename" : "Kris' Soccer Game",
+"edate" : "03/10/2012"
+"etime" : "12:00 pm"
+"recurrencetype" : "Monthly"
+"recurrences" : "4"
+"importance" : "10"
+"information" : "Dress in uniform and bring water"
+"location" : "Soccer Complex"
+},
+{"ename" : "Brandon's School Trip",
+"edate" : "06/30/2012"
+"etime" : "11:00 am"
+"recurrencetype" : "Once"
+"recurrences" : "0"
+"importance" : "10"
+"information" : "Send money"
+"location" : "School going to the movies"
+},
+{"ename" : "Matthew's Field Trip",
+"edate" : "04/25/2012"
+"etime" : "9:00 am"
+"recurrencetype" : "Once"
+"recurrences" : "0"
+"importance" : "10"
+"information" : "Send money"
+"location" : "Class going to Pittsburgh for Baseball game"
+},
+{"ename" : "Kristian's Doctor Appointment",
+"edate" : "05/22/2012"
+"etime" : "3:15 pm"
+"recurrencetype" : "Once"
+"recurrences" : "0"
+"importance" : "7"
+"information" : "Pediatrician"
+"location" : "Pediatric Partners"
+}
+
+]
+} 
