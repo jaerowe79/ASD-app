@@ -38,7 +38,7 @@ $('#list')
 	.append($('<p>').text(value[6]))
 	.append($('<p>').text(value[7]))
 	.append($('<p>').text(" "))
-	);
+	
 	
 if(localStorage.getEvent('kidtracks')){
 	var clearLink = $('#clear').css('display', 'block');
