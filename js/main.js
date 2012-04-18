@@ -69,62 +69,62 @@ $(document).ready(function () {
 	        location.reload();
     }
     // Edit items function
-    function editItem(id) {
-        itemId = id;
-        var value = localStorage.getItem(itemId);
-        value = value.split(',');
-        var ename = value[0];
-        var edate = value[1];
-        var etime = value[2];
-        var recurrencetype = value[3];
-        var recurrence = value[4];
-        var importance = value[5];
-        var information = value[6];
-        var location = value[7];
-        console.log(itemId);
-        $('#ename').val(ename);
-        $('#edate').val(edate);
-        $('#etime').val(etime);
-        $('#recurrencetype').val(recurrencetype);
-        $('#recurrence').val(recurrence);
-        $('#importance').val(importance);
-        $('#information').val(information);
-        $('#location').val(location);
-    }
+  //  function editItem(id) {
+  //      itemId = id;
+  //      var value = localStorage.getItem(itemId);
+  //      value = value.split(',');
+  //      var ename = value[0];
+  //      var edate = value[1];
+  //      var etime = value[2];
+  //      var recurrencetype = value[3];
+  //      var recurrence = value[4];
+  //      var importance = value[5];
+  //      var information = value[6];
+  //      var location = value[7];
+  //      console.log(itemId);
+  //      $('#ename').val(ename);
+  //      $('#edate').val(edate);
+  //      $('#etime').val(etime);
+  //      $('#recurrencetype').val(recurrencetype);
+  //      $('#recurrence').val(recurrence);
+  //      $('#importance').val(importance);
+  //      $('#information').val(information);
+  //      $('#location').val(location);
+  //  }
     // Show edit, hide submit
-    var editButton = $('#edit-item-button').css('display', 'block');
+    // var editButton = $('#edit-item-button').css('display', 'block');
     var subresButtons = $('#submit-reset-buttons').css('display', 'none');
     var itemList = $('#list').css('display', 'none');
     //When click edit button
-    function clickEdit() {
-        var ename = $('#ename').val();
-        var edate = $('#edate').val();
-        var etime = $('#etime').val();
-        var recurrencetype = $('#recurrencetype').val();
-        var recurrence = $('#recurrence').val();
-        var importance = $('#importance').val();
-        var information = $('#information').val();
-        var location = $('#location').val();
-        var allItems = [
-        ename, edate, etime, recurrencetype, recurrence, importance, information, location];
-        if (ename !== "" && ename !== "Event Name" && edate !== "") {
-            localStorage.setItem(itemId, allItems);
-            location.reload();
-        } else {
-            alert("Event Name and Event Date fields are required.");
-        }
-    };
-    $('#edit-item').bind('click', (clickEdit));
+   // function clickEdit() {
+   //     var ename = $('#ename').val();
+   //     var edate = $('#edate').val();
+   //     var etime = $('#etime').val();
+   //     var recurrencetype = $('#recurrencetype').val();
+   //     var recurrence = $('#recurrence').val();
+   //     var importance = $('#importance').val();
+   //     var information = $('#information').val();
+   //     var location = $('#location').val();
+   //     var allItems = [
+   //     ename, edate, etime, recurrencetype, recurrence, importance, information, location];
+   //     if (ename !== "" && ename !== "Event Name" && edate !== "") {
+   //         localStorage.setItem(itemId, allItems);
+   //         location.reload();
+   //     } else {
+   //         alert("Event Name and Event Date fields are required.");
+   //     }
+  //  };
+    // $('#edit-item').bind('click', (clickEdit));
     // Delete item function
-    function deleteItem(id) {
-        var ask = confirm("Are you sure?");
-        if (ask) {
-            localStorage.removeItem(id);
-            window.location.reload();
-        } else {
-            alert("Track not removed.");
-        }
-    }
+   // function deleteItem(id) {
+     //   var ask = confirm("Are you sure?");
+     //   if (ask) {
+     //       localStorage.removeItem(id);
+     //       window.location.reload();
+     //   } else {
+     //       alert("Track not removed.");
+     //   }
+ //   }
     // Clear local storage
     $('#clear').bind('click', function () {
         localStorage.clear();
@@ -137,7 +137,7 @@ $(document).ready(function () {
         return false;
     });
     // Hide edit button
-    $('#editbutton').css('display', 'none');
+    // $('#editbutton').css('display', 'none');
     // Validate form
     $('#submit').bind('click', function () {
         var getEname = $('#ename').val();
@@ -170,10 +170,9 @@ $('#json').live('click', function () {
         url: 'xhr/data.json',
         type: 'GET',
         dataType: 'json',
-        success: function (response) {
-            for (var i = 0, j = response.neweventform.length; i < j; i++) {
-                var e = response.neweventform[i];
-                $("#static").append('<li data-role="list-divider">JSON DATA</li>');
+        success: function (result) {
+            for (var i = 0, j = result.neweventform.length; i < j; i++) {
+                var e = result.neweventform[i];
                 $("#static li:last-child").append('<p>' + e.ename + '</p>');
                 $("#static li:last-child").append('<p>' + e.edate + '</p>');
                 $("#static li:last-child").append('<p>' + e.etime + '</p>');
@@ -184,11 +183,10 @@ $('#json').live('click', function () {
                 $("#static li:last-child").append('<p>' + e.location + '</p>');
                 $("#static").listview("refresh");
             }
-        }
-        console.log(response);
-    });
-    error: function (result) {
+      }
         console.log(result);
+    error: function (result) {
+         console.log(result)};
     });
     return false;
 });
