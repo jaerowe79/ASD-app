@@ -73,8 +73,8 @@ $('#csv').live('click', function () {
         type: "GET",
         url: "xhr/data.csv",
         dataType: "text",
-        success: function (response) {
-            var allTextLines = response.split(/\r\n|\n/);
+        success: function (results) {
+            var allTextLines = results.split(/\r\n|\n/);
             var headers = allTextLines[0].split(',');
             var lines = [];
             for (var i = 1; i < allTextLines.length; i++) {
@@ -99,7 +99,7 @@ $('#csv').live('click', function () {
                 $("#saveddata li:last-child").append('<p>' + e[7] + '</p>');
                 $("#saveddata").listview("refresh");
           
-        console.log(response);
+        console.log(results);
         };
         }
     });
@@ -111,7 +111,7 @@ $('#csv').live('click', function () {
     function getEvents() {
         for (var i = 0, n = localStorage.length; i < n; i++) {
             var key = localStorage.key(i);
-            var value = localStorage.getEvent(key);
+            var value = localStorage.getEvents(key);
             value = value.split(',');
             var ename = value[0];
             var edate = value[1];
@@ -124,17 +124,18 @@ $('#csv').live('click', function () {
         };
      	getEvents();
      	// if I comment this section out, the form seems to work, otherwise it doesn't
-	    $('#list').append($('<p>').text(value[0]));
-		     .append($('<p>').text(value[1]));
-		     .append($('<p>').text(value[2]));
-		     .append($('<p>').text(value[3]));
-		     .append($('<p>').text(value[4]));
-		     .append($('<p>').text(value[5]));
-		     .append($('<p>').text(value[6]));
-		     .append($('<p>').text(value[7]));
-		     .append($('<p>').text(" "));
-	}
-     if (localStorage.getEvent('kidtracks')) {
+	  //  $('#list')
+	 // 	 .append($('<p>').text(value[0]));
+	//	     .append($('<p>').text(value[1]));
+	//	     .append($('<p>').text(value[2]));
+	//	     .append($('<p>').text(value[3]));
+	//	     .append($('<p>').text(value[4]));
+	//	     .append($('<p>').text(value[5]));
+	//	     .append($('<p>').text(value[6]));
+	//	     .append($('<p>').text(value[7]));
+	//	     .append($('<p>').text(" "));
+	
+     if (localStorage.getEvents()) {
          var clearLink = $('#clear').css('display', 'block');
      } else {
          var ename = $('#ename').val(ename);
@@ -146,6 +147,7 @@ $('#csv').live('click', function () {
          var information = $('#information').val(information);
          var location = $('#location').val(location);
      }
+     };
      // Save items
     function saveItems(id) {
         var ename = $('#ename').val();
@@ -159,8 +161,11 @@ $('#csv').live('click', function () {
         var allItems = [
         ename, edate, etime, recurrencetype, recurrence, importance, information, location ];
             localStorage.setItem(key, allItems);
-            location.reload();
-    }
+           console.log(id);
+           // location.reload();
+    }    
+    
+    
      // Edit items function
      function editItem(id) {
          var itemId = id;
@@ -185,7 +190,7 @@ $('#csv').live('click', function () {
          $('#location').val(location);
      }
      // Show edit, hide submit
-    var editButton = $('#editevent').css('display', 'block');
+    var editButton = $('#edit-event-button').css('display', 'block');
     var subresButtons = $('#submit-reset-buttons').css('display', 'none');
     var itemList = $('#list').css('display', 'none');
     // When click edit button
@@ -208,6 +213,7 @@ $('#csv').live('click', function () {
          }
      };
       $('#editevent').bind('click', (clickEdit));
+      
      // Delete item function
      function deleteItem(id) {
          var ask = confirm("Are you sure?");
@@ -222,15 +228,18 @@ $('#csv').live('click', function () {
     $('#clear').bind('click', function () {
         localStorage.clear();
         location.reload();
-        return false;
+        alert("Local storage cleared.");
     });
-     // Clear index button event
+       
+         // Clear index button event
     $('#index-clear').bind('click', function () {
         location.reload();
-        return false;
     });
+    
      // Hide edit button
       $('#editevent').css('display', 'none');
+    
+    
      // Validate form  works
     $('#submit').bind('click', function () {
         var getEname = $('#ename').val();
