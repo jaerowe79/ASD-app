@@ -178,9 +178,12 @@ $('#json').live('click', function () {
                 $("#saveddata li:last-child").append('<p>' + e.importance + '</p>');
                 $("#saveddata li:last-child").append('<p>' + e.information + '</p>');
                 $("#saveddata li:last-child").append('<p>' + e.location + '</p>');
-                $("#saveddata").listview("refresh");
-            }
+                $("#saveddata").listview("refresh")
+            };
         console.log(result);
+       }
+      })
+     });
  
  // XML
 $('#xml').live('click', function () {
@@ -194,8 +197,8 @@ $('#xml').live('click', function () {
                 var ename = $(this).find('ename').text();
                 var edate = $(this).find('edate').text();
                 var etime = $(this).find('etime').text();
-                var recrrencetype = $(this).find('recurrencetype').text();
-                var recurrences = $(this).find('recurrences').text();
+                var recurrencetype = $(this).find('recurrencetype').text();
+                var recurrence = $(this).find('recurrences').text();
                 var importance = $(this).find('importance').text();
                 var information = $(this).find('information').text();
                 var location = $(this).find('location').text();
@@ -210,7 +213,9 @@ $('#xml').live('click', function () {
                 $("#saveddata").listview("refresh");
             })
         console.log(xml);
- 
+ }
+ })
+ })
  // Csv
 $('#csv').live('click', function () {
     $('#saveddata').empty();
@@ -245,3 +250,7 @@ $('#csv').live('click', function () {
                 $("#saveddata").listview("refresh");
           
         console.log(data);
+        }
+        }
+        })
+       });
