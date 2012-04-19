@@ -1,4 +1,4 @@
-// Week 2
+//  Week 2
 // ASD 1204
 // Janis Jae Hines
 // April 3, 2012
@@ -31,8 +31,8 @@ $(document).ready(function () {
     $('#list')
     .append($('<p>').text(value[0]))
     .append($('<p>').text(value[1]))
-    .append($('<p>').text(value[3]))
     .append($('<p>').text(value[2]))
+    .append($('<p>').text(value[3]))
     .append($('<p>').text(value[4]))
     .append($('<p>').text(value[5]))
     .append($('<p>').text(value[6]))
@@ -41,19 +41,16 @@ $(document).ready(function () {
     if (localStorage.getEvent('kidtracks')) {
         var clearLink = $('#clear').css('display', 'block');
     } else {
-        var ename ;
-        var edate ;
-        var etime ;
-        ename = $('#ename').val(ename);
-        edate = $('#edate').val(edate);
-        etime = $('#etime').val(etime);
+        var ename = $('#ename').val(ename);
+        var edate = $('#edate').val(edate);
+        var etime = $('#etime').val(etime);
         var recurrencetype = $('#recurrencetype').val(recurrencetype);
         var recurrence = $('#recurrence').val(recurrence);
         var importance = $('#importance').val(importance);
         var information = $('#information').val(information);
         var location = $('#location').val(location);
     }
-    // Save items
+     // Save items
     function saveItems(id) {
         var ename = $('#ename').val();
         var edate = $('#edate').val();
@@ -68,77 +65,77 @@ $(document).ready(function () {
 	        localStorage.setItem(key, allItems);
 	        location.reload();
     }
-    // Edit items function
-  //  function editItem(id) {
-  //      itemId = id;
-  //      var value = localStorage.getItem(itemId);
-  //      value = value.split(',');
-  //      var ename = value[0];
-  //      var edate = value[1];
-  //      var etime = value[2];
-  //      var recurrencetype = value[3];
-  //      var recurrence = value[4];
-  //      var importance = value[5];
-  //      var information = value[6];
-  //      var location = value[7];
-  //      console.log(itemId);
-  //      $('#ename').val(ename);
-  //      $('#edate').val(edate);
-  //      $('#etime').val(etime);
-  //      $('#recurrencetype').val(recurrencetype);
-  //      $('#recurrence').val(recurrence);
-  //      $('#importance').val(importance);
-  //      $('#information').val(information);
-  //      $('#location').val(location);
-  //  }
-    // Show edit, hide submit
-    // var editButton = $('#edit-item-button').css('display', 'block');
+     // Edit items function
+     function editItem(id) {
+         itemId = id;
+         var value = localStorage.getItem(itemId);
+         value = value.split(',');
+         var ename = value[0];
+         var edate = value[1];
+         var etime = value[2];
+         var recurrencetype = value[3];
+         var recurrence = value[4];
+         var importance = value[5];
+         var information = value[6];
+         var location = value[7];
+         console.log(itemId);
+         $('#ename').val(ename);
+         $('#edate').val(edate);
+         $('#etime').val(etime);
+         $('#recurrencetype').val(recurrencetype);
+         $('#recurrence').val(recurrence);
+         $('#importance').val(importance);
+         $('#information').val(information);
+         $('#location').val(location);
+     }
+     // Show edit, hide submit
+    var editButton = $('#edit-item-button').css('display', 'block');
     var subresButtons = $('#submit-reset-buttons').css('display', 'none');
     var itemList = $('#list').css('display', 'none');
-    //When click edit button
-   // function clickEdit() {
-   //     var ename = $('#ename').val();
-   //     var edate = $('#edate').val();
-   //     var etime = $('#etime').val();
-   //     var recurrencetype = $('#recurrencetype').val();
-   //     var recurrence = $('#recurrence').val();
-   //     var importance = $('#importance').val();
-   //     var information = $('#information').val();
-   //     var location = $('#location').val();
-   //     var allItems = [
-   //     ename, edate, etime, recurrencetype, recurrence, importance, information, location];
-   //     if (ename !== "" && ename !== "Event Name" && edate !== "") {
-   //         localStorage.setItem(itemId, allItems);
-   //         location.reload();
-   //     } else {
-   //         alert("Event Name and Event Date fields are required.");
-   //     }
-  //  };
-    // $('#edit-item').bind('click', (clickEdit));
-    // Delete item function
-   // function deleteItem(id) {
-     //   var ask = confirm("Are you sure?");
-     //   if (ask) {
-     //       localStorage.removeItem(id);
-     //       window.location.reload();
-     //   } else {
-     //       alert("Track not removed.");
-     //   }
- //   }
-    // Clear local storage
+    // When click edit button
+     function clickEdit() {
+         var ename = $('#ename').val();
+         var edate = $('#edate').val();
+         var etime = $('#etime').val();
+         var recurrencetype = $('#recurrencetype').val();
+         var recurrence = $('#recurrence').val();
+         var importance = $('#importance').val();
+         var information = $('#information').val();
+         var location = $('#location').val();
+         var allItems = [
+         ename, edate, etime, recurrencetype, recurrence, importance, information, location];
+         if (ename !== "" && ename !== "Event Name" && edate !== "") {
+             localStorage.setItem(itemId, allItems);
+             location.reload();
+         } else {
+             alert("Event Name and Event Date fields are required.");
+         }
+     };
+      $('#edit-item').bind('click', (clickEdit));
+     // Delete item function
+     function deleteItem(id) {
+         var ask = confirm("Are you sure?");
+         if (ask) {
+             localStorage.removeItem(id);
+             window.location.reload();
+         } else {
+             alert("Track not removed.");
+         }
+     }
+    //  Clear local storage
     $('#clear').bind('click', function () {
         localStorage.clear();
         location.reload();
         return false;
     });
-    // Clear index button event
+     // Clear index button event
     $('#index-clear').bind('click', function () {
         location.reload();
         return false;
     });
-    // Hide edit button
-    // $('#editbutton').css('display', 'none');
-    // Validate form
+     // Hide edit button
+      $('#editbutton').css('display', 'none');
+     // Validate form
     $('#submit').bind('click', function () {
         var getEname = $('#ename').val();
         var getEdate = $('#edate').val();
@@ -163,9 +160,9 @@ $(document).ready(function () {
         }
     });
 
-// JSON
+ // JSON
 $('#json').live('click', function () {
-    $('#static').empty();
+    $('#saveddata').empty();
     $.ajax({
         url: 'xhr/data.json',
         type: 'GET',
@@ -173,26 +170,21 @@ $('#json').live('click', function () {
         success: function (result) {
             for (var i = 0, j = result.neweventform.length; i < j; i++) {
                 var e = result.neweventform[i];
-                $("#static li:last-child").append('<p>' + e.ename + '</p>');
-                $("#static li:last-child").append('<p>' + e.edate + '</p>');
-                $("#static li:last-child").append('<p>' + e.etime + '</p>');
-                $("#static li:last-child").append('<p>' + e.recurrencetype + '</p>');
-                $("#static li:last-child").append('<p>' + e.recurrence + '</p>');
-                $("#static li:last-child").append('<p>' + e.importance + '</p>');
-                $("#static li:last-child").append('<p>' + e.information + '</p>');
-                $("#static li:last-child").append('<p>' + e.location + '</p>');
-                $("#static").listview("refresh");
+                $("#saveddata li:last-child").append('<p>' + e.ename + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.edate + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.etime + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.recurrencetype + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.recurrence + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.importance + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.information + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e.location + '</p>');
+                $("#saveddata").listview("refresh");
             }
-      }
         console.log(result);
-    error: function (result) {
-         console.log(result)};
-    });
-    return false;
-});
-// XML
+ 
+ // XML
 $('#xml').live('click', function () {
-    $('#static').empty();
+    $('#saveddata').empty();
     $.ajax({
         url: 'xhr/data.xml',
         type: 'GET',
@@ -207,62 +199,49 @@ $('#xml').live('click', function () {
                 var importance = $(this).find('importance').text();
                 var information = $(this).find('information').text();
                 var location = $(this).find('location').text();
-                $("#static li:last-child").append('<p>' + ename + '</p>');
-                $("#static li:last-child").append('<p>' + edate + '</p>');
-                $("#static li:last-child").append('<p>' + etime + '</p>');
-                $("#static li:last-child").append('<p>' + recurrencetype + '</p>');
-                $("#static li:last-child").append('<p>' + recurrence + '</p>');
-                $("#static li:last-child").append('<p>' + importance + '</p>');
-                $("#static li:last-child").append('<p>' + information + '</p>');
-                $("#static li:last-child").append('<p>' + location + '</p>');
-                $("#static").listview("refresh");
-            });
-        }
-        console.log(result);
-    });
-    error: function (result {
-        console.log(result);
-    });
-    return false;
-});
-//Csv
+                $("#saveddata li:last-child").append('<p>' + ename + '</p>');
+                $("#saveddata li:last-child").append('<p>' + edate + '</p>');
+                $("#saveddata li:last-child").append('<p>' + etime + '</p>');
+                $("#saveddata li:last-child").append('<p>' + recurrencetype + '</p>');
+                $("#saveddata li:last-child").append('<p>' + recurrence + '</p>');
+                $("#saveddata li:last-child").append('<p>' + importance + '</p>');
+                $("#saveddata li:last-child").append('<p>' + information + '</p>');
+                $("#saveddata li:last-child").append('<p>' + location + '</p>');
+                $("#saveddata").listview("refresh");
+            })
+        console.log(xml);
+ 
+ // Csv
 $('#csv').live('click', function () {
-    $('#static').empty();
+    $('#saveddata').empty();
     $.ajax({
         type: "GET",
         url: "xhr/data.csv",
         dataType: "text",
-        success: function (result) {
+        success: function (data) {
             var allTextLines = data.split(/\r\n|\n/);
             var headers = allTextLines[0].split(',');
             var lines = [];
             for (var i = 1; i < allTextLines.length; i++) {
-                var result = allTextLines[i].split(',');
-                if (result.length == headers.length) {
+                var data = allTextLines[i].split(',');
+                if (data.length == headers.length) {
                     var event = [];
                     for (var j = 0; j < headers.length; j++) {
-                        event.push(result[j]);
+                        event.push(data[j]);
                     }
-                    error: function (result {
-                        console.log(result);
-                    });
                     lines.push(event);
                 }
             }
             for (var m = 0; m < lines.length; m++) {
                 var e = lines[m];
-                $("#static li:last-child").append('<p>' + e[0] + '</p>');
-                $("#static li:last-child").append('<p>' + e[1] + '</p>');
-                $("#static li:last-child").append('<p>' + e[2] + '</p>');
-                $("#static li:last-child").append('<p>' + e[3] + '</p>');
-                $("#static li:last-child").append('<p>' + e[4] + '</p>');
-                $("#static li:last-child").append('<p>' + e[5] + '</p>');
-                $("#static li:last-child").append('<p>' + e[6] + '</p>');
-                $("#static li:last-child").append('<p>' + e[7] + '</p>');
-                $("#static").listview("refresh");
-            }
-        }
-        console.log(result);
-    });
-    return false;
-});
+                $("#saveddata li:last-child").append('<p>' + e[0] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[1] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[2] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[3] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[4] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[5] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[6] + '</p>');
+                $("#saveddata li:last-child").append('<p>' + e[7] + '</p>');
+                $("#saveddata").listview("refresh");
+          
+        console.log(data);
