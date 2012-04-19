@@ -122,30 +122,30 @@ $('#csv').live('click', function () {
             var information = value[6];
             var location = value[7];
         };
-    };
-    // getEvents();
-  //  $('#list')
-  //  .append($('<p>').text(value[0]));
-  //  .append($('<p>').text(value[1]));
-  //  .append($('<p>').text(value[2]));
-  //  .append($('<p>').text(value[3]));
-   // .append($('<p>').text(value[4]));
-  //  .append($('<p>').text(value[5]));
-  //  .append($('<p>').text(value[6]));
-  //  .append($('<p>').text(value[7]));
-  //  .append($('<p>').text(" "));
-  //  if (localStorage.getEvent('kidtracks')) {
-  //      var clearLink = $('#clear').css('display', 'block');
-  //  } else {
-  //      var ename = $('#ename').val(ename);
-  //      var edate = $('#edate').val(edate);
-  //      var etime = $('#etime').val(etime);
-  //      var recurrencetype = $('#recurrencetype').val(recurrencetype);
-  //      var recurrence = $('#recurrence').val(recurrence);
-  //      var importance = $('#importance').val(importance);
-  //      var information = $('#information').val(information);
-  //      var location = $('#location').val(location);
-  //  }
+     	getEvents();
+     	// if I comment this section out, the form seems to work, otherwise it doesn't
+	    $('#list').append($('<p>').text(value[0]));
+		     .append($('<p>').text(value[1]));
+		     .append($('<p>').text(value[2]));
+		     .append($('<p>').text(value[3]));
+		     .append($('<p>').text(value[4]));
+		     .append($('<p>').text(value[5]));
+		     .append($('<p>').text(value[6]));
+		     .append($('<p>').text(value[7]));
+		     .append($('<p>').text(" "));
+	}
+     if (localStorage.getEvent('kidtracks')) {
+         var clearLink = $('#clear').css('display', 'block');
+     } else {
+         var ename = $('#ename').val(ename);
+         var edate = $('#edate').val(edate);
+         var etime = $('#etime').val(etime);
+         var recurrencetype = $('#recurrencetype').val(recurrencetype);
+         var recurrence = $('#recurrence').val(recurrence);
+         var importance = $('#importance').val(importance);
+         var information = $('#information').val(information);
+         var location = $('#location').val(location);
+     }
      // Save items
     function saveItems(id) {
         var ename = $('#ename').val();
