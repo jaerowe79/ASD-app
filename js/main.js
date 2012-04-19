@@ -185,7 +185,7 @@ $('#csv').live('click', function () {
          $('#location').val(location);
      }
      // Show edit, hide submit
-    var editButton = $('#edit-item-button').css('display', 'block');
+    var editButton = $('#editevent').css('display', 'block');
     var subresButtons = $('#submit-reset-buttons').css('display', 'none');
     var itemList = $('#list').css('display', 'none');
     // When click edit button
@@ -207,7 +207,7 @@ $('#csv').live('click', function () {
              alert("Event Name and Event Date fields are required.");
          }
      };
-      $('#edit-item').bind('click', (clickEdit));
+      $('#editevent').bind('click', (clickEdit));
      // Delete item function
      function deleteItem(id) {
          var ask = confirm("Are you sure?");
@@ -230,8 +230,8 @@ $('#csv').live('click', function () {
         return false;
     });
      // Hide edit button
-      $('#editbutton').css('display', 'none');
-     // Validate form
+      $('#editevent').css('display', 'none');
+     // Validate form  works
     $('#submit').bind('click', function () {
         var getEname = $('#ename').val();
         var getEdate = $('#edate').val();
