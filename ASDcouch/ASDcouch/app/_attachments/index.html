@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My New CouchApp</title>
-    <link rel="stylesheet" href="style/main.css" type="text/css">
-  </head>
-  <body>
-    <div id="account"></div>
+<head>
+<meta charset="utf-8">
 
-    <h1>Generated CouchApp</h1>
+<title>Kid Tracks</title>
 
-    <div id="profile"></div>
-    <div id="items"></div>
+	<!-- Mobile viewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	
+	
+</head>
+	<body>
 
-    <div id="sidebar">
-      <p>Edit welcome message.</p>
-      <p>Ideas: You could easily turn this into a photo sharing app, or a grocery list, or a chat room.</p>
-    </div>
-  </body>
-  <script src="vendor/couchapp/loader.js"></script>
-  <script type="text/javascript" charset="utf-8">
-    $.couch.app(function(app) {
-      $("#account").evently("account", app);
-      $("#profile").evently("profile", app);
-      $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-      $("#items").evently("items", app);
-    });
-  </script>
+	<!-- First Page Begin -->
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>Welcome to Kid Tracks</h1>
+		</div>
+		<div data-role="content" class="ui-body-b">
+			<ul id="eventlist" data-role="listview">
+			</ul>
+		</div>
+	</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h4>Kid Tracks</h4>
+		</div>
+	<!--  end first page -->
+	
+	
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>	
+	</body>
+
 </html>
+
+
+<!-- end code -->

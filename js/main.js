@@ -48,7 +48,7 @@ $('#xml').live('click', function () {
                 var edate = $(this).find('edate').text();
                 var etime = $(this).find('etime').text();
                 var recurrencetype = $(this).find('recurrencetype').text();
-                var recurrence = $(this).find('recurrences').text();
+                var recurrence = $(this).find('recurrence').text();
                 var importance = $(this).find('importance').text();
                 var information = $(this).find('information').text();
                 var location = $(this).find('location').text();
