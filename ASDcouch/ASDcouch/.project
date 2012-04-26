@@ -9,4 +9,16 @@
 	<natures>
 		<nature>com.pittypanda.plugins.couch.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>app/_attachments/kidtracks.png</name>
+			<type>1</type>
+			<location>/Users/janishines/Desktop/ASD app/ASDcouch/ASDcouch/app/_attachments/kidtracks.png</location>
+		</link>
+		<link>
+			<name>app/_attachments/logo1.png</name>
+			<type>1</type>
+			<location>/Users/janishines/Desktop/ASD app/ASDcouch/ASDcouch/app/_attachments/logo1.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

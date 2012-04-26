@@ -11,32 +11,32 @@ $(document).ready(function () {
 
 
  // JSON
-$('#json').live('click', function () {
+$('#json').bind('click', function () {
     $('#saveddata').empty();
     $.ajax({
         url: 'xhr/data.json',
         type: 'GET',
         dataType: 'json',
         success: function (result) {
-            for (var i = 0, j = result.neweventform.length; i < j; i++) {
-                var e = result.neweventform[i];
-                $("#saveddata li:last-child").append('<p>' + e.ename + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.edate + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.etime + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.recurrencetype + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.recurrence + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.importance + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.information + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e.location + '</p>');
-                $("#saveddata").listview("refresh");
-            };
+            for (var i = 0, j = result.events.length; i < j; i++) {
+                var e = result.events[i];
+                $('<div data-role="content">' + '<ul data-role="listview">' + '<li>' +
+                '<p>Event Name: ' + e.ename + '</p>' +
+                '<p>Date of Event: ' + e.edate + '</p>' +
+                '<p>Time of Event: ' + e.etime + '</p>' +
+                '<p>Additional Information: ' + e.information + '</p>' +
+                '<p>Location of Event: ' + e.location + '</p>' +
+                '</li>' + '<br>' '</ul>' +'</div>').appendTo('#saveddata');
         console.log(result);
+       };
        }
     });
-     });
- 
+    return false;
+   }); 
+   
+   
  // XML
-$('#xml').live('click', function () {
+$('#xml').bind('click', function () {
     $('#saveddata').empty();
     $.ajax({
         url: 'xhr/data.xml',
@@ -47,63 +47,53 @@ $('#xml').live('click', function () {
                 var ename = $(this).find('ename').text();
                 var edate = $(this).find('edate').text();
                 var etime = $(this).find('etime').text();
-                var recurrencetype = $(this).find('recurrencetype').text();
-                var recurrence = $(this).find('recurrence').text();
-                var importance = $(this).find('importance').text();
                 var information = $(this).find('information').text();
                 var location = $(this).find('location').text();
-                $("#saveddata li:last-child").append('<p>' + ename + '</p>');
-                $("#saveddata li:last-child").append('<p>' + edate + '</p>');
-                $("#saveddata li:last-child").append('<p>' + etime + '</p>');
-                $("#saveddata li:last-child").append('<p>' + recurrencetype + '</p>');
-                $("#saveddata li:last-child").append('<p>' + recurrence + '</p>');
-                $("#saveddata li:last-child").append('<p>' + importance + '</p>');
-                $("#saveddata li:last-child").append('<p>' + information + '</p>');
-                $("#saveddata li:last-child").append('<p>' + location + '</p>');
-                $("#saveddata").listview("refresh");
-            });
-        console.log(xml);
+                $('<div data-role="content">' + '<ul data-role="listview">' + '<li>' +
+                '<p>Event Name: ' + ename + '</p>' +
+                '<p>Date of Event: ' + edate + '</p>' +
+                '<p>Time of Event: ' + etime + '</p>' +
+                '<p>Additional Information: ' + information + '</p>' +
+                '<p>Location of Event: ' + location + '</p>' +
+                '</li>' + '<br>' + '</ul>' + '</div>').appendTo('#saveddata');
+                 })
  }
-    });
+    })
  });
+ 
  // Csv
-$('#csv').live('click', function () {
+$('#csv').bind('click', function () {
     $('#saveddata').empty();
     $.ajax({
         type: "GET",
         url: "xhr/data.csv",
         dataType: "text",
         success: function (results) {
-            var allTextLines = results.split(/\r\n|\n/);
+            var allTextLines = results.split(/[\r\n]+/);
             var headers = allTextLines[0].split(',');
             var lines = [];
             for (var i = 1; i < allTextLines.length; i++) {
                 var response = allTextLines[i].split(',');
                 if (response.length == headers.length) {
-                    var event = [];
+                    var events = [];
                     for (var j = 0; j < headers.length; j++) {
-                        event.push(response[j]);
+                        events.push(response[j]);
                     }
-                    lines.push(event);
+                    lines.push(events);
                 }
             }
             for (var m = 0; m < lines.length; m++) {
                 var e = lines[m];
-                $("#saveddata li:last-child").append('<p>' + e[0] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[1] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[2] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[3] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[4] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[5] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[6] + '</p>');
-                $("#saveddata li:last-child").append('<p>' + e[7] + '</p>');
-                $("#saveddata").listview("refresh");
-          
-        console.log(results);
+                $('<div data-role="content">' + '<ul data-role="listview">' + '<li>' +               			   '<p>Event Name: ' + e[0] + '</p>');
+               '<p>Date of Event: ' + e[1] + '</p>');
+               '<p>Time of Event: ' + e[2] + '</p>');
+               '<p>Additional Information: ' + e[3] + '</p>');
+               '<p>Location of Event: ' + e[4] + '</p>');
+           		'</li>' + '<br>' + '</ul>' + '</div>').appendTo('#saveddata');
         };
-        }
+        },
     });
-       });
+  });
 
 
 

@@ -1,43 +1,203 @@
-<!DOCTYPE html>
+<!--Janis Jae Hines-->
+<!--ASD Project 2-->
+<!--Term 0412-->
+
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 
 <title>Kid Tracks</title>
 
-	<!-- Mobile viewport -->
+	<!-- Mobile viewport optimized: -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- StyleSheets under here -->
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	
-	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="modernizr.custom.min.js"></script>
 </head>
 	<body>
-
 	<!-- First Page Begin -->
 	<div data-role="page" id="home">
 		<div data-role="header" data-position="fixed" data-theme="a">
 			<h1>Welcome to Kid Tracks</h1>
 		</div>
-		<div data-role="content" class="ui-body-b">
-			<ul id="eventlist" data-role="listview">
-			</ul>
+	<div data-role="content" data-theme="a">
+		<img src="logo1.png" />
+	<div>
+		<p>
+		<div><center><img src="kidtracks.png" /></center></div>
+		<div>
+		<h3>Kid Tracks is an app to help you keep all of your kids' events stored in one convenient place!</h3>
 		</div>
+
+		<p>
+		<a href="#addevent" data-theme="a" data-role="button" data-icon="arrow-r" data-iconpos="right">Add a Track</a>
+		</p>
 	</div>
+		<p>
+		</p>
+		<p><a href="#event" data-theme="a" data-role="button" data-icon="arrow-r" data-iconpos="right">Track Log</a></p>
+		<p>
+		<center><h4>Kid Tracks 2012 v1.0</h4></center>
+	</div>
+	<div>
+		<p><a href="#home2" data-theme="a" data-role="button">Week 4 page</a></p>
+	</div>
+ </div>
 		<div data-role="footer" data-position="fixed" data-theme="a">
 			<h4>Kid Tracks</h4>
 		</div>
-	<!--  end first page -->
+	<!--End of first page -->
+	
+	<!--Second page begin -->
+	<div data-role="page" id="event" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>Kid Track Log</h1>
+		</div>
+		
+		<div data-role="content" data-theme="a" data-content-theme="a">
+			<img src="logo1.png" />
+			
+			<ul data-role="listview" data-inset="true" data-filter="true">
+			<li>
+			<!--<a href="#allstored"> -->
+			<h3>Stored Kid Tracks</h3>
+			<p>All tracks previously saved.</p>
+			<!-- </a> -->
+			</ul>
+		</div>
+		 <div>
+		 	<ul data-role="listview" data-inset="true">
+			</ul>
+		<!-- 	 <div data-role="content" id="jsondata">
+				<a href="#" data-role="button" data-theme="e" id="json">JSON</a>
+			</div>
+			<div data-role="content" id="xmldata">
+				<a href="#" data-role="button" data-theme="b" id="xml">XML</a>
+			</div>
+			<div data-role="content" id="csvdata">
+				<a href="#" data-role="button" data-theme="c" id="csv">CSV</a>
+			</div> -->
+			<div>
+				<p><a href="#couchdata" data-theme="a" data-role="button" data-icon="gear" data-iconpos="right">Go to Couch Data Page</a></p>
+			</div>
+			 <div data-role="content" id="saveddata"> 
+		     </div>
+				<input type="reset" id="index-clear" value="Clear Tracks" data-theme="a" data-icon="back" data-iconpos="right" />
+			</div>
+			<div>
+				<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+			<h4>Kid Tracks</h4>
+		</div>
+	 <!-- End of Second Page -->
+	
+	<!-- Add track Page -->
+	<div data-role="page" id="addevent" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="a">
+		<h1>Add New Track</h1>
+		</div>
+		<img src="logo1.png" />
+	
+	<div data-role="content" data-theme="a">
+	<form action="#" method="post" name="neweventform" id="neweventform">
+	<fieldset>
+	<div data-role="fieldcontain">
+		<label for="ename">Event Name:</label>
+		<input type="text" name="ename" id="ename" class="required" placeholder="Event Name"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="edate">Date of Event:</label>
+		<input type="text" name="edate" id="edate" class="required date" placeholder="12/12/12"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="etime">Time of Event:</label>
+		<input type="text" name="etime" id="etime" class="required time" placeholder="12:00 pm"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="information">Additional Information:</label>
+		<input type="text" name="information" id="information" placeholder="Notes"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="location">Location of Event:</label>
+		<input type="text" name="location" id="location" class="required" placeholder="Event Location"/>
+	</div>
+	</fieldset>
+    </form>
+	<div id="addeventbuttons" data-role="fieldcontain">
+	<div>
+		<input type="reset" id="reset" value="Reset" data-theme="a" />
+	</div>
+	<div>
+		<input type="submit" id="submit" class="addeventbutton" value="Save" data-theme="c"/>
+	</div>
+		<div id="eventlist" data-role="content">
+	</div>
+	<!--<div id="clearlocal">
+		<p id="clear"><a href="#" data-role="button" data-theme="d">Clear Local Storage</a></p>
+	</div> -->
+	</div>
+	<div>
+				<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
+			</div>
+	</div>
+</div>
+	<!-- End of Add track page -->
 	
 	
+	<!-- Third Page Begin -->
+	<div data-role="page" id="couchdata">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>Welcome to Kid Tracks</h1>
+		</div>
+	<div>
+		<a href="#" data-role="button" id="couchdatabtn">Load Couch Data</a>
+		<div data-role="content" id="couchdatalist"> 
+		</div>
+	</div>
+	<div>
+		<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
+	</div>
+	</div>	
+	<div data-role="footer" data-position="fixed" data-theme="a">
+		<h4>Kid Tracks</h4>
+	</div>
+	<!--  End third page -->
+	
+	<!-- Week 4 page Begin -->
+	<div data-role="page" id="home2">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>Welcome to Kid Tracks</h1>
+		</div>
+	<div>
+		<div data-role="content" id="homeItems"> 
+		</div>
+	</div>
+	<div>
+		<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
+	</div>
+	</div>	
+	<div data-role="footer" data-position="fixed" data-theme="a">
+		<h4>Kid Tracks</h4>
+	</div>
+	<!--  End third page -->
+	   
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-	<script type="text/javascript" src="main.js"></script>	
-	</body>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="jquery.couch.js"></script>	
+</body>
 
 </html>
 

@@ -37,6 +37,7 @@
 		<div>
 		<h3>Kid Tracks is an app to help you keep all of your kids' events stored in one convenient place!</h3>
 		</div>
+
 		<p>
 		<a href="#addevent" data-theme="a" data-role="button" data-icon="arrow-r" data-iconpos="right">Add a Track</a>
 		</p>
@@ -45,6 +46,10 @@
 		</p>
 		<p><a href="#event" data-theme="a" data-role="button" data-icon="arrow-r" data-iconpos="right">Track Log</a></p>
 		<p>
+		<div data-role="content" class="ui-body-b">
+			<ul id="eventlist" data-role="listview">
+			</ul>
+		</div>
 		<center><h4>Kid Tracks 2012 v1.0<h4></center>
 	</div>
 		<div data-role="footer" data-position="fixed" data-theme="a">
@@ -99,25 +104,7 @@
 		<label for="etime">Time of Event:</label>
 		<input type="text" name="etime" id="etime" class="required time" placeholder="12:00 pm"/>
 	</div>
-	<div data-role="fieldcontain">
-		<label for="recurrencetype">Event Recurrence:</label>
-		<select name="recurrencetype" id="recurrencetype" data-native-menu="false">
-		<option data-placeholder="true">Please Choose One</option>
-		<option value="Weekly">Weekly</option>
-		<option value="Monthly">Monthly</option>
-		<option value="Yearly">Yearly</option>
-		<option value="Once">Once</option>
-	</select>
-	</div>
-	<div data-role="fieldcontain">
-		<label for="recurrence">Number of Event Recurrences:</label>
-		<input type="text" name="recurrence" id="recurrence" class="required number" placeholder="1"/>
-	</div>
-	<div data-role="fieldcontain">
-		<label for="importance">Importance of Event:</label>
-		<input type="range" name="importance" id="importance" value="5" min="0" max="10"/>
-	</div>
-	<div data-role="fieldcontain">
+		<div data-role="fieldcontain">
 		<label for="information">Additional Information:</label>
 		<input type="text" name="information" id="information" placeholder="Notes"/>
 	</div>
@@ -162,7 +149,7 @@
 			<ul data-role="listview" data-inset="true" data-filter="true">
 				<li><h3>All Stored Kid Tracks</h3></li>
 			</ul>
-			<!-- <div data-role="content" id="jsondata">
+			 <div data-role="content" id="jsondata">
 				<a href="#" data-role="button" data-theme="e" id="json">JSON</a>
 			</div>
 			<div data-role="content" id="xmldata">
@@ -170,8 +157,11 @@
 			</div>
 			<div data-role="content" id="csvdata">
 				<a href="#" data-role="button" data-theme="c" id="csv">CSV</a>
-			</div> -->
-			<div id="saveddata">
+			</div> 
+			<div data-role="listview" id="saveddata">
+			</div>
+			<br>
+			<div>
 				<input type="reset" id="index-clear" value="Clear Tracks" data-theme="a" data-icon="back" data-iconpos="right" />
 			</div>
 		</div>

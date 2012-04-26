@@ -4,9 +4,6 @@ function (doc) {
 			"ename": doc.ename,
 			"edate": doc.edate,
 			"etime": doc.etime,
-			"recurrencetype": doc.recurrencetype,
-			"recurrence": doc.recurrence,
-			"importance": doc.importance,
 			"information": doc.information,
 			"location": doc.location
 		});

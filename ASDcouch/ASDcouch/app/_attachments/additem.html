@@ -1,0 +1,103 @@
+<!--Janis Jae Hines-->
+<!--ASD Project 3-->
+<!--Term 0412-->
+
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	
+	<title>Kid Tracks</title>
+	
+	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="modernizr.custom.min.js"></script>
+	</head>
+	<body>
+	
+	
+	<!-- Add track Page -->
+	<div data-role="page" id="addevent" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="a">
+		<h1>Add New Track</h1>
+		</div>
+		<img src="logo1.png" />
+	
+	<div data-role="content" data-theme="a">
+	<form action="#" method="post" name="neweventform" id="neweventform">
+	<fieldset>
+	<div data-role="fieldcontain">
+		<label for="ename">Event Name:</label>
+		<input type="text" name="ename" id="ename" class="required" placeholder="Event Name"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="edate">Date of Event:</label>
+		<input type="text" name="edate" id="edate" class="required date" placeholder="12/12/12"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="etime">Time of Event:</label>
+		<input type="text" name="etime" id="etime" class="required time" placeholder="12:00 pm"/>
+	</div>
+	<!--<div data-role="fieldcontain">
+		<label for="recurrencetype">Event Recurrence:</label>
+		<select name="recurrencetype" id="recurrencetype" data-native-menu="false">
+		<option data-placeholder="true">Please Choose One</option>
+		<option value="Weekly">Weekly</option>
+		<option value="Monthly">Monthly</option>
+		<option value="Yearly">Yearly</option>
+		<option value="Once">Once</option>
+	</select>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="recurrence">Number of Event Recurrences:</label>
+		<input type="text" name="recurrence" id="recurrence" class="required number" placeholder="1"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="importance">Importance of Event:</label>
+		<input type="range" name="importance" id="importance" value="5" min="0" max="10"/>
+	</div> -->
+	<div data-role="fieldcontain">
+		<label for="information">Additional Information:</label>
+		<input type="text" name="information" id="information" placeholder="Notes"/>
+	</div>
+	<div data-role="fieldcontain">
+		<label for="location">Location of Event:</label>
+		<input type="text" name="location" id="location" class="required" placeholder="Event Location"/>
+	</div>
+	</fieldset>
+	<div id="addeventbuttons" data-role="fieldcontain">
+	<div>
+		<input type="reset" id="reset" value="Reset" data-theme="a" />
+	</div>
+	<div>
+		<input type="submit" id="submit" class="addeventbutton" value="Add" data-theme="c"/>
+	</div>
+	<div id="edit-event-button">
+		<input type="button" id="editevent" value="Edit Event" data-theme="b"/>
+	</div>
+		<div id="list" data-role="content">
+	</div>
+	<div id="clearlocal">
+		<p id="clear"><a href="#" data-role="button" data-theme="d">Clear Local Storage</a></p>
+	</div>
+	</div>	
+</div>
+	<!-- End of Add track page -->
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="jquery.couch.js"></script>
+	</body>
+</html>
+
