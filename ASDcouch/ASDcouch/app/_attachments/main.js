@@ -11,7 +11,7 @@ $(document).ready(function () {
 		dataType: 'json',
 		success: function(data){
 			$.each(data.rows, function(index, event){
-				var id = "event" + event.doc.name;
+				var id = "event" + event.doc.ename;
 				var ename = event.doc.ename;
 				var edate = event.doc.edate;
 				var etime = event.doc.etime;
