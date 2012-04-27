@@ -5,6 +5,7 @@
 
 $(document).ready(function () {	
 	
+			
 	$('#couchdatabtn').bind('click', function(){
 	$.ajax({
 		url: '/kidtracks/_all_docs?include_docs=true&start_key="event1"&end_key="eventz"',
@@ -38,13 +39,13 @@ $(document).ready(function () {
 
 
 	$('#home2').bind("pageshow", function() {
-		$("#homeItems").empty();
+		$("#eventlisting").empty();
 		$.couch.db("kidtracks").view("app/events", {
 			success: function(data) {
-				$('#homeItems').empty();
+				$('#eventlisting').empty();
 				$.each(data.rows, function(index, event) {
 					var item = (event.value || event.doc);
-				$('#homeItems').append(
+				$('#eventlisting').append(
 						$('<li>').append(
 								$('<a>')
 									.attr("href", "events.html?events=" + item.ename)
@@ -52,7 +53,7 @@ $(document).ready(function () {
 						)
 					);
 				});
-		$('#homeItems').listview('refresh');
+		$('#eventlisting').listview('refresh');
 	  }
 	});
 	});
@@ -102,7 +103,8 @@ $(document).ready(function () {
 	};
 	
 	
-	//edit event
+	
+		//edit event
 	 $('#edit').bind("pageshow", function() {
 		var events = urlVars()[event];
 		var	key = "event" + ename;
@@ -197,6 +199,8 @@ $(document).ready(function () {
 
 	 });
 	 
+	 
+	 //another attempt at delete function creation 
 	 $('#deletetoo').bind('click', function(){
 			var ask = alert('Delete this event?');
 			if (ask) {
@@ -216,7 +220,7 @@ $(document).ready(function () {
 		});
 				  	
 		
-	//Add event
+	//Add event  WORKS
 	 $('#submit').bind('click', function(){
 	 //validation
 		 var getEname = $('#ename').val();
@@ -235,7 +239,7 @@ $(document).ready(function () {
 		 $('#edate').css('border', '1px solid #ccc');
 		 $('#etime').css('border', '1px solid #ccc');
 	 
-		 //Save event 
+		 //Save event WORKS
 	 var ename = $('#ename').val();
 	 var edate = $('#edate').val();
 	 var etime = $('#etime').val();
