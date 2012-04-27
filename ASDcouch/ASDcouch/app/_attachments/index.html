@@ -47,9 +47,9 @@
 		<p>
 		<center><h4>Kid Tracks 2012 v1.0</h4></center>
 	</div>
-	<div>
+<!-- <div>
 		<p><a href="#home2" data-theme="a" data-role="button">Week 4 page</a></p>
-	</div>
+	</div> -->
  </div>
 		<div data-role="footer" data-position="fixed" data-theme="a">
 			<h4>Kid Tracks</h4>
@@ -67,31 +67,21 @@
 			
 			<ul data-role="listview" data-inset="true" data-filter="true">
 			<li>
-			<!--<a href="#allstored"> -->
+			 <a href="#couchdata"> 
 			<h3>Stored Kid Tracks</h3>
 			<p>All tracks previously saved.</p>
-			<!-- </a> -->
+			</a>
 			</ul>
+			</div>
 		</div>
 		 <div>
 		 	<ul data-role="listview" data-inset="true">
 			</ul>
-		<!-- 	 <div data-role="content" id="jsondata">
-				<a href="#" data-role="button" data-theme="e" id="json">JSON</a>
-			</div>
-			<div data-role="content" id="xmldata">
-				<a href="#" data-role="button" data-theme="b" id="xml">XML</a>
-			</div>
-			<div data-role="content" id="csvdata">
-				<a href="#" data-role="button" data-theme="c" id="csv">CSV</a>
-			</div> -->
+		</div>
 			<div>
-				<p><a href="#couchdata" data-theme="a" data-role="button" data-icon="gear" data-iconpos="right">Go to Couch Data Page</a></p>
+				<p><a href="#couchdata" data-theme="a" data-role="button" data-icon="gear" data-iconpos="right">All Stored Events</a></p>
 			</div>
 			 <div data-role="content" id="saveddata"> 
-		     </div>
-				<input type="reset" id="index-clear" value="Clear Tracks" data-theme="a" data-icon="back" data-iconpos="right" />
-			</div>
 			<div>
 				<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
 			</div>
@@ -133,24 +123,27 @@
 	</div>
 	</fieldset>
     </form>
+   
+
 	<div id="addeventbuttons" data-role="fieldcontain">
+	<div id="submit-reset-buttons">
 	<div>
 		<input type="reset" id="reset" value="Reset" data-theme="a" />
 	</div>
-	<div>
 		<input type="submit" id="submit" class="addeventbutton" value="Save" data-theme="c"/>
 	</div>
-		<div id="eventlist" data-role="content">
+	<div id="edit-item-button" style="display: none;">
+		<input type="button" id="edit" value="Edit Event" />
 	</div>
-	<!--<div id="clearlocal">
-		<p id="clear"><a href="#" data-role="button" data-theme="d">Clear Local Storage</a></p>
-	</div> -->
+	</div>
+	</div>
+	<div id="eventlist" data-role="content">
+	</div>
 	</div>
 	<div>
-				<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
-			</div>
+		<p><a href="#home" data-theme="a" data-role="button" data-icon="home" data-iconpos="right">Return to Home Page</a></p>
 	</div>
-</div>
+
 	<!-- End of Add track page -->
 	
 	
@@ -160,7 +153,7 @@
 			<h1>Welcome to Kid Tracks</h1>
 		</div>
 	<div>
-		<a href="#" data-role="button" id="couchdatabtn">Load Couch Data</a>
+		<a href="#" data-role="button" id="couchdatabtn">Load Saved Tracks</a>
 		<div data-role="content" id="couchdatalist"> 
 		</div>
 	</div>
